@@ -5,13 +5,11 @@ namespace App\Livewire;
 use App\Models\Tenant;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-use Livewire\Attributes\Layout;
 
-#[Layout('layouts.app')]
 class TenantManagement extends Component
 {
-
     public string $name = '';
+
     public string $subdomain = '';
 
     public function store()
@@ -20,12 +18,12 @@ class TenantManagement extends Component
         try {
             $validatedData = $this->validate([
                 'name' => 'required|string|max:255',
-                'subdomain' => 'required|alpha_dash|unique:domains,domain'
+                'subdomain' => 'required|alpha_dash|unique:domains,domain',
             ]);
 
             $tenant = Tenant::create($validatedData);
 
-            $domain = $this->subdomain . '.' . config('tenancy.central_domains')[0];
+            $domain = $this->subdomain.'.'.config('tenancy.central_domains')[0];
             $tenant->createDomain($domain);
             $this->dispatch('notify', 'success', 'Tenant created successfully');
         } catch (\Exception $e) {
@@ -33,9 +31,6 @@ class TenantManagement extends Component
             $this->dispatch('notify', 'error', 'Failed to create tenant');
         }
     }
-
-
-
 
     public function getTenantsProperty()
     {

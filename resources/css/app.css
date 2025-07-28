@@ -1,8 +1,28 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+Theme Name: Metricon - Tailwind CSS Admin Template
+Support: kzamanbn@gmail.com
+Description: Metricon is a modern, clean and very detailed UI kit. We designed 60+ beautiful UI pages, 500+ elements, 50+ icons. It's very easy to used and customize.
+Version: 1.0
+*/
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source "../../node_modules/preline/dist/*.js";
 
-*[disabled] {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;900&display=swap");
+/* Extra Plugin */
+@import "simplebar/dist/simplebar.min.css";
+/* Base */
+@import "./tailwind.css";
+@import "./core/themes.css";
+/* Core */
+@import "./core/layout.css";
+@import "./core/horizontal-menu.css";
+@import "./core/vertical-menu.css";
+@import "./core/badges.css";
+@import "./core/cards.css";
+@import "./core/buttons.css";
+@import "./core/forms.css";
+@import "./core/breadcrumb.css";
+@import "./core/dropdown.css";
+@import "./core/tables.css";
+@import "./core/modal.css";
