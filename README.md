@@ -25,7 +25,7 @@ php artisan migrate
 php artisan db:seed
 ```
 
-### Test scenarion
+### Test scenario
 Please register with 2 different users
 
 Each register user will generate tenant and subdomain
