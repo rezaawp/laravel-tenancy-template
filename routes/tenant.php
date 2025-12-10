@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use App\Http\Routes\SharedRoutes;
+use App\Models\Product;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -26,6 +28,12 @@ Route::middleware([
 ])->group(function () {
     // Public routes
     Route::view('/', 'welcome')->name('home');
+
+    Route::get('test-model-in-tenant', function () {
+        $user = new Product();
+        $tableName = $user->getConnection();
+        dd($tableName);
+    });
 
     // Shared routes
     SharedRoutes::register();

@@ -24,3 +24,10 @@ php artisan migrate
 ```bash
 php artisan db:seed
 ```
+
+### Test scenarion
+Please register with 2 different users
+
+Each register user will generate tenant and subdomain
+
+Then, hit `{subdomain_tenant}.localhost/test-model-in-tenant` the expectation is connection must be to database each tenant
